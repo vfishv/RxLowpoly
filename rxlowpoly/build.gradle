@@ -1,9 +1,10 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android'
 apply from: './versions.gradle'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
+/*
 publish {
   def groupProjectID = 'com.zebrostudio.rxlowpoly'
   def artifactProjectID = 'rxlowpoly'
@@ -17,9 +18,12 @@ publish {
   desc = 'An Android library to bring your ordinary photos to life with an awesome crystallized effect.'
   website = 'https://github.com/abhriyaroy/RxLowpoly'
 }
+*/
 
 android {
-  compileSdkVersion COMPILE_SDK_VERSION
+  compileSdk COMPILE_SDK_VERSION
+  namespace "com.zebrostudio.lowpolyrxjava"
+  ndkVersion "25.2.9519653"
 
   defaultConfig {
     minSdkVersion MINIMUM_SDK_VERSION
@@ -49,7 +53,7 @@ android {
 
 dependencies {
   // Kotlin
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KOTLIN_VERSION"
   // Android support
   implementation "androidx.appcompat:appcompat:$SUPPORT_LIBRARY_VERSION"
   // Rx java
@@ -59,5 +63,8 @@ dependencies {
 }
 
 repositories {
+  google()
   mavenCentral()
+  //jcenter()
+  maven { url "https://jitpack.io" }
 }

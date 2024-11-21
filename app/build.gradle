@@ -1,11 +1,13 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
 apply from: '../versions.gradle'
 apply from: '../rxlowpoly/versions.gradle'
 
 android {
-  compileSdkVersion COMPILE_SDK_VERSION
+  compileSdk COMPILE_SDK_VERSION
+  namespace "com.zebrostudio.lowpolyrx"
+
   defaultConfig {
     applicationId "com.zebrostudio.lowpolyrx"
     minSdkVersion MINIMUM_SDK_VERSION
@@ -19,8 +21,10 @@ android {
     }
   }
   compileOptions {
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+//    sourceCompatibility = '1.8'
+//    targetCompatibility = '1.8'
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
   buildToolsVersion = BUILD_TOOLS_VERSION
 }
